@@ -1,4 +1,4 @@
-from _collections import deque
+from collections import deque
 
 N,M,V=map(int,input().split())
 vertex=[[0]*(N+1) for i in range(N+1)]

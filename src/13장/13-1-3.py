@@ -14,9 +14,9 @@ def recursive(y, x, shape):
 n = int(input())
 home = [[0 for col in range(18)] for row in range(18)]
 for i in range(1, n+1):
-    inp = list(map(int, input().split()))
+    row = list(map(int, input().split()))
     for j in range(1, n+1):
-        home[i][j] = inp[j-1]
+        home[i][j] = row[j-1]
 
 ans = 0
 recursive(1, 2, 0)

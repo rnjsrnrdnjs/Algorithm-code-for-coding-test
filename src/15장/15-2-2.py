@@ -1,4 +1,4 @@
-from _collections import deque
+from collections import deque
 
 N, M = map(int, input().split())
 maze = [list(map(int, input())) for _ in range(N)]

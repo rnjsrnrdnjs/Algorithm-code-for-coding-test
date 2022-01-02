@@ -9,8 +9,6 @@ def div(A,B):
 def sur(A,B):
   return A%B
 
-
-
 a,b= map(int, input().split())
 print(sum(a,b))
 print(sub(a,b))

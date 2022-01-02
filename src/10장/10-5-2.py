@@ -11,8 +11,7 @@ for _ in range(q):
         else:
             map[y % x+x*map[y % x]] = 1
         map[y % x] += 1
-    else:
-        map[y % x] = 1
+    else: map[y % x] = 1
 
     while mex in map:
         mex += 1
