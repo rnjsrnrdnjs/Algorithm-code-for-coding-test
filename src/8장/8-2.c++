@@ -53,7 +53,53 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n; cin >> n;
+	queue<int> q;
+	while (n--) {
+		string command; cin >> command;
+		if (command.at(0) == 'p') {
+			if (command.at(1) == 'u') {
+				int a; cin >> a;
+				q.push(a);
+			}
+			else if (command.at(1) == 'o') {
+				if (q.empty()) {
+					cout << -1 << '\n';
+				}
+				else {
+					cout << q.front() << '\n';
+					q.pop();
+				}
+			}
+		}
+		else if (command.at(0) == 'f') {
+			if (q.empty()) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << q.front() << '\n';
+			}
+		}
+		else if (command.at(0) == 'b') {
+			if (q.empty()) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << q.back() << '\n';
+			}
+		}
+		else if (command.at(0) == 's') {
+			cout << q.size() << '\n';
+		}
+		else if (command.at(0) == 'e') {
+			if (q.empty()) {
+				cout << 1 << '\n';
+			}
+			else {
+				cout << 0 << '\n';
+			}
+		}
+	}
 } 
  
 int main() {

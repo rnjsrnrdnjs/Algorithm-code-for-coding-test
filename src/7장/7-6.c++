@@ -53,7 +53,19 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n, k; cin >> n >> k;
+	string number; cin >> number;
+	deque<char> answer;
+	for (int i = 0; i < number.length(); i++) {
+		while (k && !answer.empty() &&  answer.back()<number[i]) {
+			k--;
+			answer.pop_back();
+		}
+		answer.pb(number[i]);
+	}
+	for (int i = 0; i < answer.size()-k; i++) {
+		cout << answer[i];
+	}
 } 
  
 int main() {

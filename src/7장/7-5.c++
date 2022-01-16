@@ -53,7 +53,29 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+	string g; cin >> g;
+	stack<char> state;
+
+	int cnt = 0;
+	int sum = 0;
+	for (int i = 0; i < g.length(); i++) {
+		if (!(state.empty()) && state.top()=='(') {
+			if (g.at(i) == '(') {
+				cnt++;
+			}
+			else if (g.at(i) == ')') {
+				sum += cnt;
+			}
+		}
+		else if (!(state.empty()) && state.top() == ')') {
+			if (g.at(i) == ')') {
+				sum += 1;
+				cnt--;
+			}
+		}
+		state.push(g.at(i));
+	}
+	cout << sum;
 } 
  
 int main() {

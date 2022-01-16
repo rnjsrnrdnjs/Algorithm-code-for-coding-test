@@ -53,7 +53,34 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n;
+    cin >> n;
+	stack<int> Stack;
+    for (int i = 0; i < n; i++) {
+        string command;
+        cin >> command;
+        if (command == "push") {
+            int x; cin >> x;
+            Stack.push(x);
+        }
+        else if (command == "top") {
+            if (Stack.empty())cout << "-1"<<endl;
+            else cout << Stack.top() <<endl;
+        }
+        else if (command == "pop") {
+            if (Stack.empty())cout << "-1" <<endl;
+            else {
+                cout << Stack.top() <<endl;
+                Stack.pop();
+            }
+        }
+        else if (command == "empty") {
+            cout << Stack.empty() <<endl;
+        }
+        else {
+            cout << Stack.size() <<endl;
+        }
+    }
 } 
  
 int main() {

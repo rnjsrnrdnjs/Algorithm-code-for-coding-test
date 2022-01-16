@@ -51,15 +51,31 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................fuction2.......................... //
  
+ int sum(int a,int b){
+	 return a+b;
+ }
+ int sub(int a,int b){
+	 return a-b;
+ }
+ int mul(int a,int b){
+	 return a*b;
+ }
+ int divv(int a,int b){
+	 return a/b;
+ }
+ int sur(int a, int b){
+	 return a%b;
+ }
+
 // ........................main.......................... //
 void solve() {
   int a,b;
   cin>>a>>b;
-  cout<<a+b<<endl;
-  cout<<a-b<<endl;
-  cout<<a*b<<endl;
-  cout<<a/b<<endl;
-  cout<<a%b<<endl;
+  cout<<sum(a,b)<<endl;
+  cout<<sub(a,b)<<endl;
+  cout<<mul(a,b)<<endl;
+  cout<<divv(a,b)<<endl;
+  cout <<sur(a,b)<<endl;
 } 
  
 int main() {

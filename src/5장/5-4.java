@@ -7,11 +7,11 @@ public class Main {
         int A,B;
         A=scan.nextInt();
         B=scan.nextInt();
-		sum(A,B);
-		sub(A,B);
-		mul(A,B);
-		div(A,B);
-		sur(A,B);
+		System.out.println(sum(A,B));
+		System.out.println(sub(A,B));
+		System.out.println(mul(A,B));
+		System.out.println(div(A,B));
+		System.out.println(sur(A,B));
 	}
 	static int sum(int a,int b){
 		return a+b;
