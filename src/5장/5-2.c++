@@ -53,7 +53,10 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+	int a,b;cin>>a>>b;
+	if(a>b)cout<<'>';
+	else if(a<b)cout<<"<";
+	else cout<<"==";
 } 
  
 int main() {

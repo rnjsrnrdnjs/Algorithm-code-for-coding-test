@@ -53,6 +53,13 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
+  int a,b;
+  cin>>a>>b;
+  cout<<a+b<<endl;
+  cout<<a-b<<endl;
+  cout<<a*b<<endl;
+  cout<<a/b<<endl;
+  cout<<a%b<<endl;
   
 } 
  

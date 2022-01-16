@@ -53,7 +53,7 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  cout << "Hello World!\n";
 } 
  
 int main() {
