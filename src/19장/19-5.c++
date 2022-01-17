@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 // ........................macro k.......................... //
-#define FOR(i, f, n) for(int (i) = (f); (i) < (int)(n); ++(i))
-#define RFOR(i, f, n) for(int (i) = (f); (i) > (int)(n); --(i))
-#define FER(i, f, n) for(int (i) = (f); (i) <= (int)(n); ++(i))
-#define RFER(i, f, n) for(int (i) = (f); (i) >= (int)(n); --(i))
+#define FOR(i, f, n) for (int(i) = (f); (i) < (int)(n); ++(i))
+#define RFOR(i, f, n) for (int(i) = (f); (i) > (int)(n); --(i))
+#define FER(i, f, n) for (int(i) = (f); (i) <= (int)(n); ++(i))
+#define RFER(i, f, n) for (int(i) = (f); (i) >= (int)(n); --(i))
 #define pb push_back
 #define fi first
 #define se second
 #define endl '\n'
 #define sz(A) (int)(A).size()
 #define ALL(A) A.begin(), A.end()
-#define ub(A,B) upper_bound(ALL(A), B) - A.begin()
-#define lb(A,B) lower_bound(ALL(A), B) - A.begin()
-#define MS(A,B) memset(A,B,sizeof(A));
-#define UNIQUE(c) (c).resize(unique(ALL(c)) - (c).begin())  //벡터에서 중복된수 제거 
- 
+#define ub(A, B) upper_bound(ALL(A), B) - A.begin()
+#define lb(A, B) lower_bound(ALL(A), B) - A.begin()
+#define MS(A, B) memset(A, B, sizeof(A));
+#define UNIQUE(c) (c).resize(unique(ALL(c)) - (c).begin()) //벡터에서 중복된수 제거
+
 typedef long long i64;
 typedef unsigned long long ui64;
 typedef double ld;
@@ -27,36 +27,139 @@ typedef vector<string> vs;
 typedef vector<vi> vvi;
 typedef vector<ii> vii;
 typedef vector<vii> vvii;
-inline i64 gcd(i64 a, i64 b) { if (a % b == 0)return b; else { return gcd(b, a % b); } }
+inline i64 gcd(i64 a, i64 b)
+{
+	if (a % b == 0)
+		return b;
+	else
+	{
+		return gcd(b, a % b);
+	}
+}
 inline i64 lcm(i64 a, i64 b) { return a * b / gcd(a, b); }
 inline i64 gaus(i64 a, i64 b) { return (a + b) * (b - a + 1) / 2; }
-inline i64 Pow(i64 x,i64 n,i64 m){i64 r=1;while(n){if(n&1){r=(r*x)%m;}x=(x*x)%m;n>>=1;}return r;}
- 
-template <class T> ostream& operator<<(ostream& os, vector<T> v) {
+inline i64 Pow(i64 x, i64 n, i64 m)
+{
+	i64 r = 1;
+	while (n)
+	{
+		if (n & 1)
+		{
+			r = (r * x) % m;
+		}
+		x = (x * x) % m;
+		n >>= 1;
+	}
+	return r;
+}
+
+template <class T>
+ostream &operator<<(ostream &os, vector<T> v)
+{
 	os << "[";
 	int cnt = 0;
-	for (auto vv : v) { os << vv; if (++cnt < v.size()) os << ","; }
+	for (auto vv : v)
+	{
+		os << vv;
+		if (++cnt < v.size())
+			os << ",";
+	}
 	return os << "]";
 }
-template <class L, class R> ostream& operator<<(ostream& os, map<L, R> v) {
+template <class L, class R>
+ostream &operator<<(ostream &os, map<L, R> v)
+{
 	os << "[";
 	int cnt = 0;
-	for (auto vv : v) { os << vv; if (++cnt < v.size()) os << ","; }
+	for (auto vv : v)
+	{
+		os << vv;
+		if (++cnt < v.size())
+			os << ",";
+	}
 	return os << "]";
 }
-template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
+template <class L, class R>
+ostream &operator<<(ostream &os, pair<L, R> p)
+{
 	return os << "(" << p.fi << "," << p.se << ")";
 }
 // ........................fuction1.......................... //
- 
+
 // ........................fuction2.......................... //
- 
+
+char phone_List[10000][11];
+struct TRIE
+{
+	bool Finish;
+	TRIE *Node[10];
+	TRIE()
+	{
+		Finish = false;
+		for (int i = 0; i < 10; i++)
+		{
+			Node[i] = NULL;
+		}
+	}
+	void insert(char *str)
+	{
+		if (*str == '\0')
+		{
+			Finish = true;
+			return;
+		}
+		int Cur = *str - '0';
+		if (Node[Cur] == NULL)
+			Node[Cur] = new TRIE();
+		Node[Cur]->insert(str + 1);
+	}
+	bool find(char *str)
+	{
+		if (*str == '\0')
+		{
+			return false;
+		}
+		if (Finish == true)
+			return true;
+
+		int Cur = *str - '0';
+		if (Node[Cur] == NULL)
+			return false;
+		return Node[Cur]->find(str + 1);
+	}
+};
 // ........................main.......................... //
-void solve() {
-  
-} 
- 
-int main() {
+void solve()
+{
+	int t, n;
+	cin >> t;
+	while (t--)
+	{
+		cin >> n;
+		TRIE *Root = new TRIE();
+		for (int i = 0; i < n; i++)
+		{
+			cin >> phone_List[i];
+			Root->insert(phone_List[i]);
+		}
+		bool tof = false;
+		for (int i = 0; i < n; i++)
+		{
+			if (Root->find(phone_List[i]))
+			{
+				tof = true;
+				break;
+			}
+		}
+		if (tof == false)
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
+	}
+}
+
+int main()
+{
 	cin.tie(0), ios_base::sync_with_stdio(false);
 	solve();
 	return 0;

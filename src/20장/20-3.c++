@@ -53,7 +53,22 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+	vi dp(1001, 0);
+	int N; cin >> N;
+	vi arr(N + 1, 0);
+	for (int i = 1; i <= N; i++) {
+		cin >> arr[i];
+	}
+	int answer=0;
+	for (int i = 1; i <= N; i++) {
+		for (int j = 0; j < i; j++) {
+			if (arr[j] < arr[i] ) {
+				dp[i] = max(dp[i], dp[j]+1 );
+			}
+		}
+		answer = max(answer, dp[i]);
+	}
+	cout << answer;
 } 
  
 int main() {

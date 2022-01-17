@@ -53,7 +53,19 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  string str; cin >> str;
+	int a, b;
+	int idx = 0;
+	for (int i = 0; i < str.length(); i++) {
+		if (str[i]==':') {
+			idx = i;
+			break;
+		}
+	}
+	a = stoi(str.substr(0,idx ));
+	b = stoi(str.substr(idx+1, str.length()-idx));
+	int g = gcd(a, b);
+	cout << a / g << ":" << b / g << endl;
 } 
  
 int main() {

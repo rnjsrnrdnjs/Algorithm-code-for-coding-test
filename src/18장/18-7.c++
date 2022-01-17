@@ -50,10 +50,35 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+ struct Person {
+	int age;
+	string name;
+	int join;
+};
+
+bool cmp(Person u,Person v) {
+	if (u.age<v.age) {
+		return true;
+	}
+	else if (u.age==v.age) {
+		return u.join < v.join;
+	}
+	else {
+		return false;
+	}
+}
 // ........................main.......................... //
 void solve() {
-  
+  int N; cin >> N;
+	vector<Person> arr(N);
+	for (int i = 0; i < N; i++) {
+		cin >> arr[i].age >> arr[i].name;
+		arr[i].join = i;
+	}
+	sort(arr.begin(), arr.end(),cmp);
+	for (int i = 0; i < N; i++) {
+		cout << arr[i].age << " " << arr[i].name << '\n';
+	}
 } 
  
 int main() {

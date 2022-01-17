@@ -53,7 +53,13 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n;cin>>n;
+  string num;cin>>num;
+  int answer=0;
+  for(int i=0;i<n;i++){
+	  answer+=(num[i]-'0');
+  }
+  cout<<answer<<endl;
 } 
  
 int main() {
