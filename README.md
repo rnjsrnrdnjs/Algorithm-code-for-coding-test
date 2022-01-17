@@ -28,6 +28,8 @@ python 사용자라면 3-2.py 파일을 사용하시면 됩니다.
     git clone https://github.com/rnjsrnrdnjs/Algorithm-code-for-coding-test
 ```
 깃허브 사용자가 아니라면 
+
+
 ![스크린샷(521)_LI](https://user-images.githubusercontent.com/49832278/149806833-a0dd889a-c66a-4478-b87b-cd1a5ce3d930.jpg)
 
 코드 ZIP파일을 다운로드 하여 사용하실수 있습니다.
