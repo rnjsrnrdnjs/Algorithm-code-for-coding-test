@@ -53,7 +53,39 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n; cin >> n;
+	vi arr(n);
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	int s; cin >> s;
+	while (true) {
+		bool tof = false;
+		for (int i = 0; i < n - 1; i++) {
+			int idx = i;
+			int cmp;
+			for (int j = n-1; j >=i+1; j--) {
+				if (arr[idx]<arr[j]) {
+					if (j-i<=s) {
+						idx = j;
+						tof = true;
+						cmp = j - i;
+					}
+				}
+			}
+			if (idx != i) {
+				int tmp = arr[idx];
+				arr.erase(arr.begin() + idx);
+				arr.insert(arr.begin()+i,tmp);
+				s -= cmp;
+				break;
+			}
+		}
+		if (!tof)break;
+	}
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}cout << endl;
 } 
  
 int main() {

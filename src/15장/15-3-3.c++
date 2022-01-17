@@ -50,11 +50,53 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int N, M, start;
+int A[1001][1001];
+int visit[1001];
+
+void dfs(int start) {
+	cout << start << " ";
+	visit[start] = 1;
+	for (int i = 1; i <= N; i++) {
+		if (visit[i]==1 || A[start][i]==0) {
+			continue;
+		}
+		dfs(i);
+	}
+}
+void bfs(int start) {
+	queue<int> q;
+	q.push(start);
+	visit[start] = 1;
+
+	while (!q.empty()) {
+		start = q.front();
+		q.pop();
+		cout << start << " ";
+		for (int i = 1; i <= N; i++) {
+			if (A[start][i] == 1 && !visit[i]) {
+				visit[i] = true;
+				q.push(i);
+			}
+		}
+	}
+}
+
 // ........................main.......................... //
 void solve() {
-  
-} 
+	cin >> N >> M >> start;
+	int x, y;
+	for (int i = 0; i < M; i++) {
+		cin >> x >> y;
+		A[x][y] = 1;
+		A[y][x] = 1;
+	}
+	dfs(start);
+	cout << endl;
+	memset(visit, false, sizeof(visit));
+	bfs(start);
+	cout << endl;
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

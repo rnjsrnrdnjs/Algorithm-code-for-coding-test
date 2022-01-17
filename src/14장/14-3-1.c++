@@ -50,11 +50,35 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int num[9];
+bool visit[9]{ 0, };
+int n, m;
+
+void backT(int cnt) {
+	if (cnt==m) {
+		for (int i = 0; i < m; i++) {
+			cout << num[i] << " ";
+		}cout << endl;
+		return;
+	}
+	else {
+		for (int i = 1; i <= n; i++) {
+			visit[i] = 1;
+			num[cnt] = i;
+			backT(cnt + 1);
+			visit[i] = 0;
+		}
+	}
+}
+
 // ........................main.......................... //
-void solve() {
-  
-} 
+void solve()
+{
+	cin >> n >> m;
+	memset(visit, 0, sizeof(visit));
+	backT(0);
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

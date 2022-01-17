@@ -53,7 +53,20 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n; cin >> n;
+	priority_queue<int, vi,greater<int>> pq;
+	int sum = 0;
+	for (int i = 1; i <= n; i++) {
+		int tmp; cin >> tmp;
+		pq.push(tmp);
+	}
+	while (pq.size()>1) {
+		int a = pq.top(); pq.pop();
+		int b = pq.top(); pq.pop();
+		sum += a + b;
+		pq.push(a+b);
+	}
+	cout << sum << endl;
 } 
  
 int main() {

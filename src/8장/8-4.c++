@@ -47,15 +47,70 @@ template <class L, class R> ostream& operator<<(ostream& os, map<L, R> v) {
 template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 	return os << "(" << p.fi << "," << p.se << ")";
 }
-// ........................fuction1.......................... //
- 
 // ........................fuction2.......................... //
- 
+
+int tb[101][101]{0,};
+deque<ii> dq;
+vector<pair<int,char>> xc;
+int s=0;
+int d[4][2]={{0,1},{1,0},{0,-1},{-1,0}};
 // ........................main.......................... //
 void solve() {
-  
-} 
- 
+	int n,k;cin>>n>>k;
+	for(int i=0;i<k;i++){
+		int y,x;cin>>y>>x;tb[y-1][x-1]=1;
+	}
+	int l;cin>>l;
+	for(int i=0;i<l;i++){
+		int x;char c;cin>>x>>c;
+		xc.pb({x,c});
+	}
+	int ans=0;
+	int idx=0;
+	int x=0;
+	int y=0;
+	dq.push_back({0,0});
+	tb[y][x]=2;
+	
+	while(true){
+		ans++;
+		int dy=d[s][0]+dq.back().fi;
+		int dx=d[s][1]+dq.back().se;
+		if( !(0<=dy && dy<n)||!(0<=dx && dx<n) || tb[dy][dx]==2 ){
+			break;
+		}
+		if(tb[dy][dx]==0){
+			tb[dq.front().fi][dq.front().se]=0;
+			dq.pop_front();
+		}
+		tb[dy][dx]=2;
+		dq.push_back({dy,dx});
+		
+		if(idx<xc.size()){
+		if(ans==xc[idx].fi){
+			if(s==0){
+			if(xc[idx].se=='L')s=3;
+			if(xc[idx].se=='D')s=1;	
+			}
+			else if(s==1){
+			if(xc[idx].se=='L')s=0;
+			if(xc[idx].se=='D')s=2;
+			}		
+			else if(s==2){
+			if(xc[idx].se=='L')s=1;
+			if(xc[idx].se=='D')s=3;		
+			}
+			else if(s==3){
+			if(xc[idx].se=='L')s=2;
+			if(xc[idx].se=='D')s=0;
+			}
+			idx++;
+		}
+		}
+	}
+	cout<<ans<<endl;	
+}
+		
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);
 	solve();

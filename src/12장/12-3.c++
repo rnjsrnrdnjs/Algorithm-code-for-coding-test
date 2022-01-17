@@ -50,10 +50,31 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+vii arr;
+int N;
 // ........................main.......................... //
 void solve() {
-  
+	cin >> N;
+	arr.resize(N);
+	stack<ii> st;
+	for (int i = 0; i < N; i++) {
+		cin >> arr[i].first >> arr[i].second;
+	}
+	sort(ALL(arr));
+	for (int i = 0; i < N; i++) {
+		if (!st.empty()) {
+			if (st.top().second > arr[i].second) {
+				st.pop();
+				st.push(make_pair(arr[i].first, arr[i].second));
+				continue;
+			}
+			if (st.top().second>arr[i].first) {
+				continue;
+			}
+		}
+		st.push(make_pair(arr[i].first, arr[i].second));
+	}
+	cout << st.size();
 } 
  
 int main() {

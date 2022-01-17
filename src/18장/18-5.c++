@@ -53,8 +53,26 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
-} 
+	int n; cin >> n;
+	vi arr(n+1);
+	for (int i = 1; i <= n; i++) {
+		cin >> arr[i];
+	}
+	sort(ALL(arr));
+	if (arr[1] != 1) {
+		cout << 1 << endl;
+	}
+	else {
+		int sum = 1;
+		for (int i = 2; i <= n; i++) {
+			if (sum+1 < arr[i]) {
+				break;
+			}
+			sum += arr[i];
+		}
+		cout << sum + 1 << endl;
+	}
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

@@ -53,7 +53,21 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int t; cin >> t;
+	while (t--) {
+		map<string, int> mp;
+		int n; cin >> n; 
+		for (int i = 0; i < n; i++) {
+			string a, b; cin >> a >> b;
+			mp[b]++;
+		}
+		int result = 1;
+		for (auto it = mp.begin(); it != mp.end(); it++) {
+			result *= it->second + 1;
+		}
+		cout << result - 1 << endl;
+
+	}
 } 
  
 int main() {

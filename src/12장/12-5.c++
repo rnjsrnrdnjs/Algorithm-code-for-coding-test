@@ -50,11 +50,56 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int cs[1002]{0,};
+
 // ........................main.......................... //
 void solve() {
-  
-} 
+  int n;cin>>n;
+  for(int i=0;i<n;i++){
+    int tmp;cin>>tmp;
+    cs[tmp]++;
+  }
+  while(true){
+    bool tof=false;
+    for(int i=0;i<=1000;i++){
+      if(cs[i]){
+        tof=true;
+        if(cs[i+1]){
+          int k=-1;
+          for(int j=i+2;j<=1000;j++){
+            if(cs[j]){
+              k=j;
+              break;
+            }
+          }
+          if(k!=-1){
+            while(cs[i]){
+              cout<<i<<" ";
+              cs[i]--;
+            }
+            cout<<k<<" ";
+            cs[k]--;
+            break;
+          }
+          else{
+            cout<<i+1<<" ";
+            cs[i+1]--;
+            break;
+          }
+        }
+        else{
+          while(cs[i]){
+            cout<<i<<" ";
+            cs[i]--;
+          }
+          break;
+        }
+      }
+    }
+    if(!tof)break;
+  }
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

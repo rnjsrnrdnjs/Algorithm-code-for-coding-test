@@ -50,11 +50,106 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
-// ........................main.......................... //
+int mn = 2147483647; int mx = -2147000000;
+int n;
+int visit[12];
+vi arr;
+vector<char> giho;
+vector<char> rg; int idx = 0;
+void backT(int m) {
+	if (m == n - 1) {
+		int sum = 0;
+		for (int i = 0; i < n - 1; i++) {
+			if (i == 0) {
+				if (rg[i] == '+') {
+					sum = arr[i] + arr[i + 1];
+				}
+				else if (rg[i] == '-') {
+					sum = arr[i] - arr[i + 1];
+				}
+				else if (rg[i] == '*') {
+					sum = arr[i] * arr[i + 1];
+				}
+				else if (rg[i] == '/') {
+					sum = arr[i] / arr[i + 1];
+				}
+			}
+			else {
+				if (rg[i] == '+') {
+					sum += arr[i + 1];
+				}
+				else if (rg[i] == '-') {
+					sum -= arr[i + 1];
+				}
+				else if (rg[i] == '*') {
+					sum *= arr[i + 1];
+				}
+				else if (rg[i] == '/') {
+					sum /= arr[i + 1];
+				}
+			}
+		}
+		mn = min(mn, sum);
+		mx = max(mx, sum);
+	}
+	else {
+		for (int i = 0; i < n - 1; i++) {
+			if (!visit[i]) {
+				visit[i] = 1;
+				if (giho[i] == '+') {
+					rg[idx++] = '+';
+				}
+				else if (giho[i] == '-') {
+					rg[idx++] = '-';
+				}
+				else if (giho[i] == '*') {
+					rg[idx++] = '*';
+				}
+				else if (giho[i] == '/') {
+					rg[idx++] = '/';
+				}
+
+				backT(m + 1);
+				idx--;
+				visit[i] = 0;
+			}
+		}
+	}
+}
+
+// ..........................main............................//
 void solve() {
-  
-} 
+	cin >> n; arr.resize(n); rg.resize(n - 1);
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	for (int i = 0; i < 4; i++) {
+		int tmp; cin >> tmp;
+		if (i == 0) {
+			for (int j = 0; j < tmp; j++) {
+				giho.pb('+');
+			}
+		}
+		else if (i == 1) {
+			for (int j = 0; j < tmp; j++) {
+				giho.pb('-');
+			}
+		}
+		else if (i == 2) {
+			for (int j = 0; j < tmp; j++) {
+				giho.pb('*');
+			}
+		}
+		else if (i == 3) {
+			for (int j = 0; j < tmp; j++) {
+				giho.pb('/');
+			}
+		}
+	}
+	backT(0);
+	cout << mx << endl;
+	cout << mn << endl;
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

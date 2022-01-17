@@ -53,8 +53,39 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
-} 
+  int n;cin>>n;
+  int ans=0;
+  int ca[1001]{0,},cb[1001]{0,};
+  for(int i=0;i<n;i++){
+    int tmp;cin>>tmp;ca[tmp]++;
+  }
+  for(int i=0;i<n;i++){
+    int tmp;cin>>tmp;cb[tmp]++;
+  }
+  for(int i=1;i<=1000;i++){
+    while(ca[i]){
+      bool tof=false;
+      for(int j=i-1;j>=1;j--){
+        if(cb[j]){
+          tof=true;
+          ans+=2;
+          ca[i]--;
+          cb[j]--;
+          break;
+        }
+      }
+      if(!tof)break;
+    }
+  }
+  for(int i=1;i<=1000;i++){
+    while(ca[i] && cb[i]){
+      ans++;
+      ca[i]--,cb[i]--;
+    }
+  }
+  cout<<ans<<endl;
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

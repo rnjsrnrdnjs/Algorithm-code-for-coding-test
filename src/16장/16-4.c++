@@ -50,11 +50,25 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+bool sosu(int a) {
+	for (int i = 2; i <= sqrt(a); i++) {
+		if (a % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
 // ........................main.......................... //
 void solve() {
-  
-} 
+	int m, n; cin >> m >> n;
+	for (int i = m; i <= n; i++) {
+		if (i == 1)continue;
+		if (sosu(i)) {
+			cout << i << endl;
+		}
+	}
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

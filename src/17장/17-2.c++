@@ -50,11 +50,44 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+vi arr;
+void binarySearch(vi &array, int target) {
+	int start = 0;
+	int end = array.size() - 1;
+	int mid ;
+	while (end - start >= 0) {
+		mid = (end + start) / 2;
+
+		if (array[mid] == target) {
+			cout<<1<<endl;
+			return;
+		}
+		else if (array[mid] <= target) {
+			start = mid + 1;
+		}
+		else {
+			end = mid - 1;
+		}
+	}
+	cout << 0 << endl;
+	return;
+}
+
 // ........................main.......................... //
+
 void solve() {
-  
-} 
+	int N; cin >> N;	
+	arr.resize(N);
+	for (int i = 0; i < N; i++) {
+		cin >> arr[i];
+	}
+	sort(ALL(arr));
+	int M; cin >> M; int temp;
+	for (int i = 0; i < M; i++) {
+		cin >> temp;
+		binarySearch(arr,temp);
+	}
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

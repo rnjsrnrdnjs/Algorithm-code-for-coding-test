@@ -53,7 +53,15 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int N; cin >> N;
+	vector<int> A(N);
+	for (int i = 0; i < N; i++) {
+		cin >> A[i];
+	}
+	sort(A.begin(), A.end());
+	for (int i = 0; i < N; i++) {
+		cout << A[i] << '\n';
+	}
 } 
  
 int main() {

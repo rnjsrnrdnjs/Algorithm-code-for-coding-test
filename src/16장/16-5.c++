@@ -53,8 +53,13 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
-} 
+	int t; cin >> t;
+	while (t--) {
+		i64 a, b; cin >> a >> b;
+		cout << lcm(a, b) << endl;
+	}
+	
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

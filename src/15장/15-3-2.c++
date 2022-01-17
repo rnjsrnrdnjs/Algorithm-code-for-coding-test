@@ -51,10 +51,30 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................fuction2.......................... //
  
-// ........................main.......................... //
+int n, s;
+vi arr(21);
+int result = 0;
+void bf(int idx, int sum) {
+	sum += arr[idx];
+	if (idx==n) {
+		return;
+	}
+	if (sum==s) {
+		result++;
+	}
+	bf(idx + 1, sum);
+	bf(idx+1,sum-arr[idx]);
+}
+
+// ..........................main............................//
 void solve() {
-  
-} 
+	cin >> n >> s;
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	bf(0, 0);
+	cout << result << endl;
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

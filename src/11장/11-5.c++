@@ -50,11 +50,31 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+ int arr[10]{0};
+
 // ........................main.......................... //
-void solve() {
-  
-} 
+void solve()
+{
+	priority_queue< int, vector<int>, less<int> > pqx;
+	//priority_queue< int, vector<int>, greater<int> > pqn;
+	int N;cin>>N;
+	for(int i=0;i<N;i++){
+		int a;cin>>a;
+		if(a==0){
+			if(pqx.empty()){
+				cout<<0<<endl;
+			}
+			else{
+			cout<<pqx.top()<<endl;
+			pqx.pop();
+			}
+		}
+		else{
+			pqx.push(a);
+		}
+	}
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

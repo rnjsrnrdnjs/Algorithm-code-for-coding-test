@@ -50,11 +50,29 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
+ i64 ps[200001];
  
 // ........................main.......................... //
 void solve() {
-  
-} 
+  int n;cin>>n;
+  vi64 a(n);
+  map<i64,i64> mp;
+  for(int i=0;i<n;i++)cin>>a[i];
+  int ans=0;
+  MS(ps,0);
+  for(int i=0;i<n;i++){
+    ps[i]=a[i];
+    if(i!=0)ps[i]+=ps[i-1];
+    if(mp[ps[i]] || ps[i]==0){
+      ans++;
+      mp.clear();
+      ps[i]=a[i];
+    }
+    mp[ps[i]]=1;
+  }
+  cout<<ans<<endl;
+ 
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

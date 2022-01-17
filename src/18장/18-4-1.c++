@@ -53,7 +53,19 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n;cin>>n;
+  vi arr(n);
+  for(int i=0;i<n;i++)cin>>arr[i];
+  for(int i=0;i<n;i++){
+	  for(int j=i+1;j<n;j++){
+		  if(arr[i]>arr[j]){
+			  int tmp=arr[i];
+			  arr[i]=arr[j];
+			  arr[j]=tmp;
+		  }
+	  }
+  }
+  for(int i=0;i<n;i++)cout<<arr[i]<<endl;
 } 
  
 int main() {

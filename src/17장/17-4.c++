@@ -50,11 +50,31 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
-// ........................main.......................... //
+vi up;
+vi down;
+int result[500001]{ 0, };
+// ..........................main............................//
 void solve() {
-  
-} 
+	int n, h; cin >> n >> h;
+	for (int i = 0; i< n; i++) {
+		int tmp; cin >> tmp;
+		if (i % 2 == 1)up.pb(tmp);
+		else down.pb(tmp);
+	}
+	sort(ALL(up));
+	sort(ALL(down));
+	int ans = 0;
+	int mx = 2147483647;
+	for (int i = 1; i <= h; i++) {
+		int idxd = lb(down, i);
+		int idxu = lb(up,h-i+1);
+		mx=min(mx,result[i] = n / 2 - idxd + n / 2 - idxu);
+	}
+	for (int i = 1; i <= h; i++) {
+		if (result[i] == mx)ans++;
+	}
+	cout << mx << " " << ans;
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

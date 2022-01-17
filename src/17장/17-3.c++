@@ -50,12 +50,38 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int N,K;
+vi arr;
+
 // ........................main.......................... //
-void solve() {
-  
-} 
- 
+void solve()
+{
+	cin >> K >> N;
+	int mx = 0; arr.resize(K);
+	for (int i = 0; i < K; i++) {
+		cin >> arr[i];
+		mx = max(mx, arr[i]);
+	} i64 sum = 0; i64 len = 0;
+	i64 start = 1; i64 end = mx; i64 mid; i64 mx2 = 0;
+	while (end >= start) {
+		mid = (start + end) / 2;
+		sum = 0;
+		for (int i = 0; i < K; i++) {
+			sum += arr[i] / mid;
+		}
+		if (sum>=N) {
+			start = mid + 1;
+			if (mid>mx2) {
+				mx2 = mid;
+			}
+		}
+		else {
+			end = mid - 1;
+		}
+	}
+	cout << mx2;
+}
+
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);
 	solve();

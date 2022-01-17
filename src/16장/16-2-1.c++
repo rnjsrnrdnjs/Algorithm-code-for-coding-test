@@ -53,7 +53,22 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n,k;cin>>n>>k;
+  int up=1;
+  for(int i=1;i<=n;i++){
+	  up*=i;
+  }
+  int down=1;
+  for(int i=1;i<=n-k;i++){
+	  down*=i;
+  }
+  int down2=1;
+  for(int i=1;i<=k;i++){
+	  down*=i;
+  }
+  down*=down2;
+  cout<<up/down<<endl;
+
 } 
  
 int main() {

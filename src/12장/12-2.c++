@@ -53,7 +53,27 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  string str; cin >> str;
+	int sum = 0;
+	string temp = "";
+	bool minus = false;
+	for (int i = 0; i <= str.length(); i++) {
+		if (str[i] == '+' || str[i] == '-' || str[i] == '\0') {
+			if (minus) {
+				sum -= stoi(temp);
+			}
+			else {
+				sum += stoi(temp);
+			}
+			temp = "";
+			if (str[i] == '-') {
+				minus = true;
+			}
+			continue;
+		}
+		temp += str[i];
+	}
+	cout << sum << endl;
 } 
  
 int main() {

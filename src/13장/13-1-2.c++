@@ -51,9 +51,22 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................fuction2.......................... //
  
+ void hanoi(int n, int start, int to, int end)
+{
+    if(n == 1)
+		cout<<start<<" "<<to <<endl;
+    else
+    {
+        hanoi(n-1,start,end,to);
+		cout<<start<<" "<<to<<endl;
+        hanoi(n-1,end,to,start);
+    }
+}
 // ........................main.......................... //
 void solve() {
-  
+  int num;cin>>num;
+  cout<< (1<<num) -1<<endl;
+  hanoi(num,1,3,2);
 } 
  
 int main() {

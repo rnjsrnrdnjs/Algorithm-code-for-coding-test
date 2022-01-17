@@ -50,11 +50,24 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+
+i64 com[1001][1001]{ 0, };
+
 // ........................main.......................... //
 void solve() {
-  
-} 
+		int n, m; cin >> n >> m;
+		com[1][0] = 1;
+		com[1][1] = 1;
+		
+		for (int i = 2; i <= n; i++) {
+			com[i][0] = 1;
+			for (int j = 1; j <= m; j++) {
+				com[i][j] = (com[i - 1][j - 1] + com[i - 1][j])%10007;
+			}
+		}
+		cout << com[n][m] % 10007<< endl;
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

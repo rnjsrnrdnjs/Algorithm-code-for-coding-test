@@ -53,7 +53,20 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int t,x;cin>>t>>x;
+	map<int,int> mp;
+	int mex=0;
+	while(t--){
+		int y;cin>>y;
+		if(mp[y%x]){
+			mp[(y%x)+x*mp[y%x] ]++;
+		}
+		mp[y%x]++;
+		while(mp[mex]){
+			mex++;
+		}
+		cout<<mex<<endl;
+	}
 } 
  
 int main() {

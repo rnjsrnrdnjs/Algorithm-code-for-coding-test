@@ -50,12 +50,41 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+struct node{
+	int left=0,right=0;
+}tree[1000001];
+void postOrder(int root){
+  if(root==0)return;
+  postOrder(tree[root].left);
+  postOrder(tree[root].right);
+  cout<<root<<endl;
+}
 // ........................main.......................... //
 void solve() {
-  
+  int root;cin>>root;
+  int num;
+  while(cin>>num){
+    int cur=root;
+    while(true){
+      if(num<cur){
+        if(tree[cur].left==0){
+          tree[cur].left=num;
+          break;
+        }
+        else cur=tree[cur].left;
+      }
+      else if(num>cur){
+        if(tree[cur].right==0){
+          tree[cur].right=num;
+          break;
+        }
+        else cur=tree[cur].right;
+      }
+    }
+  }
+  postOrder(root);
 } 
- 
+
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);
 	solve();

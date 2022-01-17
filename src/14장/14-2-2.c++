@@ -50,12 +50,103 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int bruteforce(int x, int y, vector<vector<char>> arr){
+	char War[8][8] ={ { 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' }};
+	int Bar[8][8]= {{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}, //w 0
+					{'B','W','B','W','B','W','B','W' },
+					{ 'W','B','W','B','W','B','W','B'}};
+	int wcnt = 0;
+	int bcnt = 0;
+
+	for (int i = x; i < x + 8; i++) {//w
+		for (int j = y; j < y + 8; j++) {
+			if (i%2==0) {
+				if (j%2==0) {
+					if (arr[i][j]!='W') {
+						wcnt++;
+					}
+				}
+				else {
+					if (arr[i][j] != 'B') {
+						wcnt++;
+					}
+				}
+			}
+			else {
+				if (j % 2 == 0) {
+					if (arr[i][j] != 'B') {
+						wcnt++;
+					}
+				}
+				else {
+					if (arr[i][j] != 'W') {
+						wcnt++;
+					}
+				}
+			}
+		}
+	}
+	for (int i = x; i < x + 8; i++) {//b
+		for (int j = y; j <y + 8; j++) {
+			if (i % 2 == 0) {
+				if (j % 2 == 0) {
+					if (arr[i][j] != 'B') {
+						bcnt++;
+					}
+				}
+				else {
+					if (arr[i][j] != 'W') {
+						bcnt++;
+					}
+				}
+			}
+			else {
+				if (j % 2 == 0) {
+					if (arr[i][j] != 'W') {
+						bcnt++;
+					}
+				}
+				else {
+					if (arr[i][j] != 'B') {
+						bcnt++;
+					}
+				}
+			}
+		}
+	}
+	return min(wcnt, bcnt);
+}
+
 // ........................main.......................... //
 void solve() {
-  
-} 
- 
+	int N, M; cin >> N >> M;
+	vector<vector<char>> arr(N, vector<char>(M));
+	for (int i = 0; i < N; i ++ ) {
+		for (int j = 0; j < M; j++) {
+			cin>>arr[i][j];
+		}
+	}
+
+	int mn = 2147483647;
+	for (int i = 0; i < N-7; i++) {
+		for (int j = 0; j < M-7; j++) {
+			mn = min(mn, bruteforce(i,j,arr));
+		}
+	}
+	cout << mn;
+}
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);
 	solve();

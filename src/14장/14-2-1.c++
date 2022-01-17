@@ -53,7 +53,15 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
  
 // ........................main.......................... //
 void solve() {
-  
+  int n;cin>>n;
+  int count=0;
+  for(int i=1;i<6660000;i++){
+	  if(to_string(i).find("666")!=string::npos)count++;
+	  if(n==count){
+		  cout<<i<<endl;
+		  break;
+	  }
+  }
 } 
  
 int main() {

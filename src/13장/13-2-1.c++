@@ -50,11 +50,64 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int paper[128][128];
+int wcnt = 0; int bcnt = 0;
+void search(int y, int x, int N) {
+	bool tof = true;
+	if (paper[y][x]==0) {
+		for (int i = y; i <y+ N; i++) {
+			for (int j = x; j < x+ N; j++) {
+				if (paper[i][j]==1) {
+					search(y, x,N/2);
+					search(y+N/2, x, N / 2);
+					search(y, x+N/2, N / 2);
+					search(y+N/2, x+N/2, N / 2);
+					tof = false;
+					break;
+				}
+			}
+			if(!tof) {
+				break;
+			}
+			else if (i == y + N - 1) {
+				wcnt++;
+			}
+		}
+	}
+	else {
+		for (int i = y; i < y + N; i++) {
+			for (int j = x; j < x + N; j++) {
+				if (paper[i][j] == 0) {
+					search(y, x, N / 2);
+					search(y + N / 2, x, N / 2);
+					search(y, x + N / 2, N / 2);
+					search(y + N / 2, x + N / 2, N / 2);
+					tof = false;
+					break;
+				}
+			}
+			if (!tof) {
+				break;
+			}
+			else if(i==y+N-1) {
+				bcnt++;
+			}
+		}
+	}
+}
 // ........................main.......................... //
-void solve() {
-  
-} 
+void solve()
+{
+	int N; cin >> N;
+	for (int i = 0; i < N; i++) {
+		FOR(j, 0, N) {
+			cin >> paper[i][j];
+		}
+	}
+	search(0,0,N);
+	cout << wcnt << endl << bcnt;
+
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);

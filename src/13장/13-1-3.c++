@@ -50,11 +50,32 @@ template <class L, class R> ostream& operator<<(ostream& os, pair<L, R> p) {
 // ........................fuction1.......................... //
  
 // ........................fuction2.......................... //
- 
+int tb[17][17]{0,};
+int ans=0;
+int n;
+void bf(int y,int x,int s){
+	if(y==n && x==n)ans++;
+	if(y>n || x>n)return ;
+	if(!tb[y][x+1] && (s==0 || s==2) ){
+		bf(y,x+1,0);
+	}
+	if(!tb[y+1][x] && (s==1 || s==2)){
+		bf(y+1,x,1);
+	}
+	if(!tb[y+1][x] && !tb[y+1][x+1] && !tb[y][x+1] ){
+		bf(y+1,x+1,2);
+	}
+}
+
 // ........................main.......................... //
 void solve() {
-  
-} 
+	cin>>n;
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=n;j++)cin>>tb[i][j];
+	}
+	bf(1,2,0);
+	cout<<ans<<endl;
+}
  
 int main() {
 	cin.tie(0), ios_base::sync_with_stdio(false);
