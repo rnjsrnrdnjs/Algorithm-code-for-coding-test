@@ -11,7 +11,6 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
 		M = sc.nextInt();
-
 		house = new ArrayList<>();
 		chicken = new ArrayList<>();
 

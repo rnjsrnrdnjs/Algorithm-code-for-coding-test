@@ -5,7 +5,6 @@ class Solution {
 		HashMap<String, String> map = new HashMap();
 		for (int i = 0; i < record.length; i++) {
 			String[] temp = record[i].split(" ");
-
 			if (temp[0].equals("Enter")) {
 				trace.add(temp[1] + "님이 들어왔습니다.");
 				map.put(temp[1], temp[2]);

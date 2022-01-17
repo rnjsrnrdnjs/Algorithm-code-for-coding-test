@@ -14,7 +14,7 @@ vector<string> solution(vector<string> Record) {
                 RecordLog.push_back(TempString);  
                 TempString="";                    
                 continue;                         
-            }
+            } 
             TempString+=Record[i][j];             
         }
     }
