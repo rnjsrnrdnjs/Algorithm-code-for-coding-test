@@ -1,12 +1,35 @@
 # Algorithm-code-for-coding-test
-누가 코딩테스트에 합격하는가 책 코드 (c++,java,python)
+* * *
 
-6-2-1 제외
-7-3 제외
+### 보통의 취준생을 위한 코딩테스트 with 파이썬 (c++,java,python) 
+ 
+안녕하세요. 보통의 취준생을 위한 코딩테스트 with 파이썬 저자 권국원 입니다.
+해당책에서 나오는 코드들은 github에 올려두었으며, 다운로드하여 쉽게 이용할수 있도록
+해두었습니다.
 
-10-5 -> 10-5-1
-10-5 -> 10-5-2
+사용 방법
+-----------
+src 폴더안에 3장부터 20장까지의 코드(c++,java,python)가 들어있습니다.
+![스크린샷(520)_LI](https://user-images.githubusercontent.com/49832278/149806823-33ade2d0-fd34-47af-9fdc-31a1197ba3e1.jpg)
 
-우선선위 큐인가 ; 있음
-12-4 ; 지우기
-13-1-1 코드 바꾸고 수정
+
+각장에는 .c++, .java .py 확장자 파일이 들어있습니다.
+
+
+3-2장의 문제를 예로들어 사용하실때는
+c++ 사용자라면 3-2.c++ 파일을,
+java 사용자라면 3-2.java 파일을,
+python 사용자라면 3-2.py 파일을 사용하시면 됩니다.
+
+파일 다운로드 방법
+-----------
+깃허브 사용자라면 아래 명령어를 통해 파일을 다운로드 하실수있으며,
+```bash
+    git clone https://github.com/rnjsrnrdnjs/Algorithm-code-for-coding-test
+```
+깃허브 사용자가 아니라면 
+![스크린샷(521)_LI](https://user-images.githubusercontent.com/49832278/149806833-a0dd889a-c66a-4478-b87b-cd1a5ce3d930.jpg)
+
+코드 ZIP파일을 다운로드 하여 사용하실수 있습니다.
+
+###### 오타 혹은 코드 에러 발견시 090tree@gmail.com 으로 연락 바랍니다.
