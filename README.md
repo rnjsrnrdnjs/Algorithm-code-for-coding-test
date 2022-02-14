@@ -1,6 +1,9 @@
 # Algorithm-code-for-coding-test
 * * *
 
+![보코테](https://user-images.githubusercontent.com/49832278/153901428-6f73c720-d32e-4857-8dff-ee303dd742ee.png)
+
+
 ### 보통의 취준생을 위한 코딩테스트 with 파이썬 (c++,java,python) 
  
 안녕하세요. 보통의 취준생을 위한 코딩테스트 with 파이썬 저자 권국원 입니다.
