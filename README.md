@@ -36,5 +36,5 @@ python 사용자라면 3-2.py 파일을 사용하시면 됩니다.
 
 ###### 오타 혹은 코드 에러 발견시 090tree@gmail.com 으로 연락 바랍니다.
 
+![다운로드](https://user-images.githubusercontent.com/49832278/154022751-b82bfff7-777a-4cf9-b1d8-1ef162c320f3.jpg)
 
-![보코테](https://user-images.githubusercontent.com/49832278/153901484-826cdc5a-d735-4f38-bec2-9d48aeab2f58.png)
